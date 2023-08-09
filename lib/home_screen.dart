@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:itifinalproject/item_details.dart';
+import 'package:itifinalproject/popular_now.dart';
 import 'package:itifinalproject/profile_page.dart';
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -122,21 +124,38 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                         Padding(
                           padding: const EdgeInsets.only(left: 8.0),
-                          child: Container(
-                            width: 110,
-                            height: 38,
-                            child: Center(
-                                child: Text(
-                                  "Order now",
-                                  style: TextStyle(
-                                    color: Color(0xFFE54A00),
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 16,
-                                  ),
-                                )),
-                            decoration: BoxDecoration(
-                                color: Colors.white,
-                                borderRadius: BorderRadius.circular(20)),
+                          child: InkWell(
+                            onTap: (){
+                              ScaffoldMessenger.of(context).showMaterialBanner(
+                                MaterialBanner(
+                                    padding: EdgeInsets.all(20),
+                                    leading: Icon(Icons.notifications_active_outlined,color: Colors.white,size: 25,),
+                                    backgroundColor: Color(0xFFE54A00),
+                                    content: Text("Added to cart",style: TextStyle(fontSize: 25,color: Colors.white,fontWeight: FontWeight.bold),),
+                                    actions: [InkWell(
+                                        onTap: (){
+                                          ScaffoldMessenger.of(context).hideCurrentMaterialBanner();
+                                        },
+                                        child: Icon(Icons.exit_to_app,color: Colors.white,))]
+                                ),
+                              );
+                            },
+                            child: Container(
+                              width: 110,
+                              height: 38,
+                              child: Center(
+                                  child: Text(
+                                    "Order now",
+                                    style: TextStyle(
+                                      color: Color(0xFFE54A00),
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 16,
+                                    ),
+                                  )),
+                              decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  borderRadius: BorderRadius.circular(20)),
+                            ),
                           ),
                         ),
                       ],
@@ -244,11 +263,24 @@ class _HomeScreenState extends State<HomeScreen> {
             Row(
               children: [
                 SizedBox(width: 20,),
-               itemHomeBuild(
-                   itemName: "Beef Burger",
-                   itemDetails: "Double beef+cheese",
-                   itemPrice: "138 L.E",
-                   itemImage: "assets/images/beefburger.png"),
+               InkWell(
+                 onTap: (){
+                   Navigator.of(context).push(
+                     MaterialPageRoute(
+                       builder: (context) =>  DetailsPage(name:"Beef Burger",
+                         image: "assets/images/beefburger.png",
+                         price: "138",
+                         details:  "classic double cheese burger with beef patty,pickles, chesse,tomato,onion,ketchup and,mustard",
+                       ),
+                     ),
+                   );
+                 },
+                 child: itemHomeBuild(
+                     itemName: "Beef Burger",
+                     itemDetails: "Double beef+cheese",
+                     itemPrice: "138 L.E",
+                     itemImage: "assets/images/beefburger.png"),
+               ),
                 SizedBox(width: 25,),
                 // Container(
                 //   child: Column(
@@ -307,11 +339,24 @@ class _HomeScreenState extends State<HomeScreen> {
                 //     borderRadius: BorderRadius.circular(20)
                 //   ) ,
                 // ),
-                itemHomeBuild(
-                    itemName: "Chicken Burger",
-                    itemDetails: "Double chicken+cheese",
-                    itemPrice: "122 L.E",
-                    itemImage: "assets/images/chickenburger.png"),
+                InkWell(
+                  onTap: (){
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) =>  DetailsPage(name:"Chicken Burger",
+                          image: "assets/images/chickenburger.png",
+                          price: "122",
+                          details: "classic cheese burger with Chicken chesse,tomato,onion,ketchup and,mustard",
+                        ),
+                      ),
+                    );
+                  },
+                  child: itemHomeBuild(
+                      itemName: "Chicken Burger",
+                      itemDetails: "Double chicken+cheese",
+                      itemPrice: "122 L.E",
+                      itemImage: "assets/images/chickenburger.png"),
+                ),
 
               ],
             ),
@@ -326,42 +371,65 @@ class _HomeScreenState extends State<HomeScreen> {
                 Spacer(),
                 Padding(
                   padding: const EdgeInsets.only(right: 8.0),
-                  child: Text("See All",style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 16
-                  ),),
+                  child: InkWell(
+                    onTap: (){
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (context) => const PopularNowScreen(),
+                        ),
+                      );
+                    },
+                    child: Text("See All",style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 16
+                    ),),
+                  ),
                 )
               ],
             ),
             SizedBox(height: 20,),
-            Container(
-              child: Row(
-                children: [
-                  Image.asset("assets/images/pizza5.png"),
-                  SizedBox(width: 10,),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      SizedBox(height: 15,),
-                      Text("Pizza with sausages\n and mushroom",style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 18
-                      ),),
-                      SizedBox(height: 10,),
-                      Text(" with Ranch sause",style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 14,
-                        color: Colors.black.withOpacity(.5)
-                      ),)
-                    ],
-                  )
-                ],
-              ),
-              width: 360,
-              height: 150,
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(20)
+            InkWell(
+              onTap: (){
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) =>  DetailsPage(name:"Sausage Pizza",
+                      image: "assets/images/pizza5.png",
+                      price: "140",
+                      details:  "classic Pizza with sausage and mushroom and Ranch sause on top",
+                    ),
+                  ),
+                );
+              },
+
+              child: Container(
+                child: Row(
+                  children: [
+                    Image.asset("assets/images/pizza5.png"),
+                    SizedBox(width: 10,),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        SizedBox(height: 15,),
+                        Text("Pizza with sausages\n and mushroom",style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 18
+                        ),),
+                        SizedBox(height: 10,),
+                        Text(" with Ranch sause",style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 14,
+                          color: Colors.black.withOpacity(.5)
+                        ),)
+                      ],
+                    )
+                  ],
+                ),
+                width: 360,
+                height: 150,
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(20)
+                ),
               ),
             ),
           ],
@@ -417,9 +485,9 @@ class _HomeScreenState extends State<HomeScreen> {
                               ScaffoldMessenger.of(context).showMaterialBanner(
                                   MaterialBanner(
                                     padding: EdgeInsets.all(20),
-                                    leading: Icon(Icons.notifications_active_outlined,color: Colors.white,),
+                                    leading: Icon(Icons.notifications_active_outlined,color: Colors.white,size: 25,),
                                       backgroundColor: Color(0xFFE54A00),
-                                      content: Text("Added to cart",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),),
+                                      content: Text("Added to cart",style: TextStyle(fontSize: 25,color: Colors.white,fontWeight: FontWeight.bold),),
                                       actions: [InkWell(
                                           onTap: (){
                                             ScaffoldMessenger.of(context).hideCurrentMaterialBanner();

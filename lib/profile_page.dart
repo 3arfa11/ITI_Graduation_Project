@@ -76,6 +76,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       children: [
                         Row(
                           children: [
+                            Icon(Icons.email_outlined,color: Colors.white,),
+                            SizedBox(width: 7,),
                             Text("Email",style: TextStyle(
                               color: Colors.white,
                               fontWeight: FontWeight.bold,
@@ -91,6 +93,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         SizedBox(height: 30,),
                         Row(
                           children: [
+                            Icon(Icons.phone_android_rounded,color: Colors.white,),
+                            SizedBox(width: 5,),
                             Text("Phone number",style: TextStyle(
                               color: Colors.white,
                               fontWeight: FontWeight.bold,
@@ -105,6 +109,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         SizedBox(height: 30,),
                         Row(
                           children: [
+                            Icon(Icons.location_on_outlined,color: Colors.white,),
+                            SizedBox(width: 5,),
                             Text("Country",style: TextStyle(
                               color: Colors.white,
                               fontWeight: FontWeight.bold,
@@ -121,6 +127,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         SizedBox(height: 30,),
                         Row(
                           children: [
+                            Icon(Icons.location_city_rounded,color: Colors.white,),
+                            SizedBox(width: 5,),
+
                             Text("Company",style: TextStyle(
                               color: Colors.white,
                               fontWeight: FontWeight.bold,
@@ -135,11 +144,17 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           ],
                         ),
                         SizedBox(height: 30,),
-                        Text("About",style: TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 20,
-                        ),),
+                        Row(
+                          children: [
+                            Icon(Icons.info_outline,color: Colors.white,),
+                            SizedBox(width: 5,),
+                            Text("About",style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 20,
+                            ),),
+                          ],
+                        ),
                         SizedBox(height: 10,),
                         Text("Retail food delivery is a courier "
                             "service in which a restaurant, store,"
