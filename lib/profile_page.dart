@@ -26,10 +26,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
         leading: InkWell(
             onTap: (){
               Navigator.of(context).pushReplacement(
-                MaterialPageRoute(
-                  builder: (context) => const HomeScreen(),
-                ),
-              );
+                  MaterialPageRoute(builder: (context)=>HomeScreen()));
             },
             child: Icon(Icons.arrow_back_ios,color: Colors.black,size: 25,)),
         centerTitle: true,

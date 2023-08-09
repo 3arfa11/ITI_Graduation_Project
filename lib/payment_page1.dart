@@ -15,7 +15,11 @@ class _PaymentScreenState extends State<PaymentScreen> {
       appBar: AppBar(
         backgroundColor: Color(0xFFF6F6F6),
         elevation: 0,
-        leading: Icon(Icons.arrow_back_ios,color: Colors.black,),
+        leading: InkWell(
+            onTap: (){
+              Navigator.of(context).pop();
+            },
+            child: Icon(Icons.arrow_back_ios,color: Colors.black,)),
         centerTitle: true,
         title: Text("Payment",style: TextStyle(
           color: Colors.black,
@@ -44,7 +48,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
             SizedBox(height: 80,),
             Center(
               child: Container(
-                child: Center(child: Text("Continuo",style: TextStyle(
+                child: Center(child: Text("Continue",style: TextStyle(
                   color: Colors.white,
                   fontSize: 22,
                   fontWeight: FontWeight.bold,

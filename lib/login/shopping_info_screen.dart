@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:itifinalproject/hive/hive_helper.dart';
 import 'package:itifinalproject/cubit/shopping_info_cubit.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:itifinalproject/payment_page1.dart';
 class ShoppingInfoScreen extends StatefulWidget {
   const ShoppingInfoScreen({super.key});
 
@@ -62,12 +63,17 @@ class _ShoppingInfoScreenState extends State<ShoppingInfoScreen> {
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: FloatingActionButton.extended(
-        label: Text("Continuo"),
+        label: Text("continue"),
         shape:  RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(10)
         ),
         backgroundColor: Colors.deepOrange,
-        onPressed: () async{
+        onPressed: () {
+          Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (context) => const PaymentScreen(),
+            ),
+          );
 
         },
 

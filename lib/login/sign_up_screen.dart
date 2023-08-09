@@ -304,7 +304,7 @@ class SignUpScreenState extends State<SignUpScreen> {
                             box1.put("re_password", _retypepasswordController);
                             Navigator.of(context).push(
                               MaterialPageRoute(
-                                builder: (context) => const ProfileScreen(),
+                                builder: (context) => const LoginScreen(),
                               ),
                             );
                           }

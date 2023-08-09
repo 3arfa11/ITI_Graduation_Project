@@ -4,6 +4,7 @@ import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:itifinalproject/home_screen.dart';
 import 'package:itifinalproject/login/sign_up_screen.dart';
+import 'package:url_launcher/url_launcher.dart';
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
 
@@ -12,6 +13,12 @@ class LoginScreen extends StatefulWidget {
 }
 
 class LoginScreenState extends State<LoginScreen> {
+  launchURL(String url) async{
+    if(await canLaunch(url)){
+      await launch(url);
+    }
+    else{throw "could not launch $url";}
+  }
   final _passwordController = TextEditingController();
   final _emailController = TextEditingController();
   bool obsecureText = true;
@@ -245,25 +252,47 @@ class LoginScreenState extends State<LoginScreen> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          CircleAvatar(
-                            backgroundImage:
-                            AssetImage("assets/images/facebook.png"),
-                            radius: 18,
+                          InkWell(
+                            onTap:(){
+                              const url = "https://www.facebook.com";
+                              launch(url);
+
+                            },
+                            child: CircleAvatar(
+                              backgroundImage:
+                              AssetImage("assets/images/facebook.png"),
+                              radius: 18,
+                            ),
                           ),
                           SizedBox(
                             width: 40,
                           ),
-                          CircleAvatar(
-                            backgroundImage: AssetImage("assets/images/tw.jpg"),
-                            radius: 18,
+                          InkWell(
+                            onTap:(){
+                              const url = "https://accounts.google.com";
+                              launch(url);
+
+                            },
+                            child: CircleAvatar(
+                              backgroundColor: Colors.white,
+                              backgroundImage: AssetImage("assets/images/googleicon.png"),
+                              radius: 18,
+                            ),
                           ),
                           SizedBox(
                             width: 40,
                           ),
-                          CircleAvatar(
-                            backgroundImage:
-                            AssetImage("assets/images/apple.png"),
-                            radius: 18,
+                          InkWell(
+                            onTap:(){
+                              const url = "https://github.com/login";
+                              launch(url);
+
+                            },
+                            child: CircleAvatar(
+                              backgroundImage:
+                              AssetImage("assets/images/g1.png"),
+                              radius: 18,
+                            ),
                           ),
                         ],
                       ),

@@ -10,6 +10,14 @@ class DetailsPage extends StatefulWidget {
 }
 
 class _DetailsPageState extends State<DetailsPage> {
+  int counter =0 ;
+
+  @override
+  void initState() {
+
+     counter =0 ;
+    super.initState();
+  }
   @override
   var rating = 0.0;
   refersh(){
@@ -82,7 +90,7 @@ class _DetailsPageState extends State<DetailsPage> {
                   children: [
                     Padding(
                       padding: const EdgeInsets.only(left: 13.0),
-                      child: Text(price,
+                      child: Text(widget.price,
                         style: TextStyle(
                           color: Colors.black,
                           fontWeight: FontWeight.w600,
@@ -187,7 +195,7 @@ class _DetailsPageState extends State<DetailsPage> {
                   height: 95,
                   child: ListView.separated(
                       itemCount: 1,
-                      itemBuilder: (context,index)=>_buildDescription(description),
+                      itemBuilder: (context,index)=>_buildDescription(widget.details),
                       separatorBuilder:(context, index) {
                         return SizedBox(height: 10.0);
                       }
@@ -248,24 +256,42 @@ class _DetailsPageState extends State<DetailsPage> {
           children: [
             Padding(
               padding: const EdgeInsets.only(left: 12.0),
-              child: CircleAvatar(
-                radius:15 ,
-                backgroundColor: Colors.white,
-                child: Icon(CupertinoIcons.minus,color: Colors.black,size: 30,),
+              child: InkWell(
+                onTap: (){
+                  setState(() {
+
+                    if(counter >0){
+                      counter--;
+                    }
+                  });
+                },
+                child: CircleAvatar(
+                  radius:15 ,
+                  backgroundColor: Colors.white,
+                  child: Icon(CupertinoIcons.minus,color: Colors.black,size: 30,),
+                ),
               ),
             ),
             SizedBox(width: 12,),
-            Text("1",style: TextStyle(
+            Text(counter.toString(),style: TextStyle(
               fontWeight: FontWeight.w800,
               fontSize: 26,
               color: Colors.black,
             ),),
             Padding(
               padding: const EdgeInsets.only(left: 12.0),
-              child: CircleAvatar(
-                radius:15 ,
-                backgroundColor: Color(0xFFE54A00),
-                child: Icon(CupertinoIcons.plus,color: Colors.white,size: 28,),
+              child: InkWell(
+                onTap: (){
+                  setState(() {
+                    counter++;
+                  });
+                }
+                ,
+                child: CircleAvatar(
+                  radius:15 ,
+                  backgroundColor: Color(0xFFE54A00),
+                  child: Icon(CupertinoIcons.plus,color: Colors.white,size: 28,),
+                ),
               ),
             )
           ],
@@ -275,7 +301,7 @@ class _DetailsPageState extends State<DetailsPage> {
   }
   String description=
     "classic double cheese burger with beef patty,pickles, chesse,tomato,onion,ketchup and,mustard";
-  Padding _buildDescription(String text) {
+  Padding _buildDescription(String description) {
     return Padding(
       padding: const EdgeInsets.only(left: 8.0),
       child: Container(

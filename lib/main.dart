@@ -5,6 +5,8 @@ import 'package:itifinalproject/cubit/shopping_info_cubit.dart';
 import 'package:itifinalproject/payment_page1.dart';
 import 'package:itifinalproject/popular_now.dart';
 import 'package:itifinalproject/profile_page.dart';
+import 'package:itifinalproject/splash_screens/splash_screen1.dart';
+import 'package:itifinalproject/splash_screens/splash_screen2.dart';
 import 'home_screen.dart';
 import 'login/login_screen.dart';
 import 'login/shopping_info_screen.dart';
@@ -27,7 +29,7 @@ class MyApp extends StatelessWidget {
       create: (context) => ShoppingInfoCubit(),
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        home: const HomeScreen(),
+        home: const SplashScreen1(),
       ),
     );
   }

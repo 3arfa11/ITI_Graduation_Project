@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:ionicons/ionicons.dart';
 import 'package:itifinalproject/item_details.dart';
 import 'package:itifinalproject/popular_now.dart';
 import 'package:itifinalproject/profile_page.dart';
@@ -16,8 +17,130 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer:Container(
+        width: 350,
+        child: Drawer(
+
+            child:SafeArea(
+          child:Container(
+              width: 380,
+              decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    begin: Alignment.topCenter,
+                    end: FractionalOffset.bottomCenter,
+                    colors: [Colors.white.withOpacity(0.8), Colors.white.withOpacity(0.8)],
+                    stops: [0, 1],
+                  )),
+              child: Padding(
+                padding: const EdgeInsets.only(left: 8.0,
+                    top: 20,
+                    right:0
+                ),
+                child: ListView(
+                  padding: EdgeInsets.zero,
+                  children: <Widget>[
+                    Padding(
+                      padding: const EdgeInsets.only(right: 10.0),
+                      child: Row(
+                          children: [
+                            CircleAvatar(
+                              radius: 35,
+                              backgroundColor: Colors.white,
+                              child: Image.asset("assets/images/person.png",width: 74,),
+                            ),
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Text("Ramy Awd",style: TextStyle(
+                                      fontSize: 20,
+                                      color: Colors.black,
+                                      fontWeight: FontWeight.w700,
+                                    ),
+                                    ),
+                                    SizedBox(width: 114,),
+                                    InkWell(
+                                      onTap: (){
+                                        Navigator.of(context).pop();
+                                      },
+                                      child: ClipOval(
+                                          child:Container(
+                                              decoration: BoxDecoration(color: Colors.white),
+                                              width: 50,
+                                              child:
+                                              Container(child: Icon(Icons.close,size: 40,color: Colors.black,)))),
+                                    ),
+                                  ],
+                                ),
+                                SizedBox(
+                                  height: 4,
+                                ),
+
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  children: [
+                                    Text("ramy.awd99@gmail.com",
+                                      style: TextStyle(
+                                          color: Colors.grey,
+                                          fontWeight: FontWeight.w500,
+                                          fontSize: 15
+
+                                      ),
+                                    )
+
+                                  ],
+                                ),
+                              ],
+                            ),
+
+                          ]
+                      ),
+                    ),
+                    SizedBox(height: 15,),
+                    Divider(color: Colors.black,indent: 25,endIndent: 25,),
+                    Padding(
+                      padding: const EdgeInsets.all(15.0),
+                      child: Column(
+                        children: [
+                          Container(
+                            height: 250,
+                            child: ListView.separated(separatorBuilder: (context,index)=>SizedBox(height: 20,),
+                                itemCount: texts1.length,
+                                itemBuilder: (context,index)=>_buildBars(icons1,texts,texts1,index)),
+                          ),
+                          Divider(color: Colors.black,indent: 16,endIndent: 16,),
+                          SizedBox(height: 30,),
+                          Container(
+                            height: 300,
+                            child: ListView.separated(
+
+                                separatorBuilder: (context,index)=>SizedBox(height: 20,),
+                                itemCount: texts2.length,
+                                itemBuilder: (context,index)=>_buildBars(icons2,texts2,texts3,index)),
+                          ),
+                        ],
+                      ),
+                    ),
+
+                  ],
+                ),
+              )),
+        )
+        ),
+      ),
       backgroundColor: Colors.grey.shade100,
       appBar: AppBar(
+        leading: Builder(
+          builder: (BuildContext context){
+            return IconButton(
+                onPressed: (){Scaffold.of(context).openDrawer();},
+                icon:Image.asset("assets/images/menu2.png",width: 28,)
+
+            );
+          },
+        ),
         systemOverlayStyle: SystemUiOverlayStyle(
           statusBarColor: Colors.white,
         ),
@@ -32,9 +155,14 @@ class _HomeScreenState extends State<HomeScreen> {
             fontSize: 30,
           ),
         ),
-        leading: Icon(Icons.menu_sharp,
-          color: Color(0xFF262626),
-        ),
+        // leading: InkWell(
+        //   onTap: (){
+        //     Scaffold.of(context).openDrawer();
+        //   },
+        //   child: Icon(Icons.menu_sharp,
+        //     color: Color(0xFF262626),
+        //   ),
+        // ),
         actions: [
           InkWell(
             onTap: (){
@@ -64,10 +192,17 @@ class _HomeScreenState extends State<HomeScreen> {
                     width: 365,
                     height: 53,
                     child: TextFormField(
+                      onTap: (){
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder:(context) => ProfileScreen()));
+                      },
                       decoration: InputDecoration(
-                        prefixIcon: Icon(
-                          Icons.search,
-                          color: Colors.black.withOpacity(.5),
+                        prefixIcon: InkWell(
+
+                          child: Icon(
+                            Icons.search,
+                            color: Colors.black.withOpacity(.5),
+                          ),
                         ),
                         label: Text(
                           "Search",
@@ -278,7 +413,7 @@ class _HomeScreenState extends State<HomeScreen> {
                  child: itemHomeBuild(
                      itemName: "Beef Burger",
                      itemDetails: "Double beef+cheese",
-                     itemPrice: "138 L.E",
+                     itemPrice: "138",
                      itemImage: "assets/images/beefburger.png"),
                ),
                 SizedBox(width: 25,),
@@ -345,7 +480,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       MaterialPageRoute(
                         builder: (context) =>  DetailsPage(name:"Chicken Burger",
                           image: "assets/images/chickenburger.png",
-                          price: "122",
+                          price: "125",
                           details: "classic cheese burger with Chicken chesse,tomato,onion,ketchup and,mustard",
                         ),
                       ),
@@ -354,7 +489,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   child: itemHomeBuild(
                       itemName: "Chicken Burger",
                       itemDetails: "Double chicken+cheese",
-                      itemPrice: "122 L.E",
+                      itemPrice: "122",
                       itemImage: "assets/images/chickenburger.png"),
                 ),
 
@@ -519,4 +654,81 @@ class _HomeScreenState extends State<HomeScreen> {
                 ) ,
               );
   }
+  List<Widget> icons1=[
+    Icon(Icons.shopping_bag_outlined,color: Color(0xFFE54A00),size: 28,),
+    Icon(Ionicons.wallet_outline,color: Color(0xFFE54A00),size: 28,),
+    Icon(CupertinoIcons.heart,color: Color(0xFFE54A00),size: 28,),
+  ];
+  List<Widget> icons2=[
+    Icon(Icons.percent_rounded,color: Color(0xFFE54A00),size: 28,),
+    Icon(Icons.phone_rounded,color: Color(0xFFE54A00),size: 28,),
+    Icon(Icons.settings_rounded,color: Color(0xFFE54A00),size: 28,),
+    Icon(CupertinoIcons.info_circle,color: Color(0xFFE54A00),size: 28,),
+  ];
+  List<String> texts=[
+    "My Orders",
+    "My Wallet",
+    "Favourite",
+  ];
+  List<String> texts1=[
+    "3 orders",
+    "450 L.E",
+    "2 items",
+  ];
+
+  List<String> texts2=[
+    "Offers",
+    "Contact us",
+    "Setting",
+    "About us",
+  ];
+
+  List<String> texts3=[
+    "",
+    "",
+    "",
+    "",
+  ];
+  Row _buildBars(List<Widget> icon,List<String> text,List<String> text2,int index ) {
+    return Row(
+      children: <Widget>[
+        Container(
+            width:305 ,
+            height: 55,
+            decoration: BoxDecoration(
+                color: Colors.white.withOpacity(0.45),
+                borderRadius: BorderRadius.circular(7),
+                border: Border.all(color: Color(0xFFF6F6F6))
+            ),
+            child:Padding(
+              padding: const EdgeInsets.only(left: 12.0,right: 5),
+              child: Row(
+                children: [
+                  icon[index],
+                  SizedBox(width: 8,),
+                  Text(text[index],
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 20,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                  SizedBox(width: 28,),
+                  Text(text2[index],
+                    style: TextStyle(
+                      color: Colors.grey,
+                      fontSize: 18,
+                      fontWeight: FontWeight.w400,
+                    ),
+                  ),
+                  Spacer(),
+                  Icon(Icons.arrow_forward_ios_rounded,color: Color(0xFFE54A00),)
+                ],
+              ),
+            )
+        ),
+      ],
+    );
+  }
 }
+

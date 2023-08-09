@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:itifinalproject/home_screen.dart';
 
+import 'item_details.dart';
+
 class PopularNowScreen extends StatefulWidget {
   const PopularNowScreen({super.key});
 
@@ -65,11 +67,7 @@ appBar: AppBar(
   backgroundColor: Color(0xFFE54A00),
   leading: InkWell(
       onTap: (){
-        Navigator.of(context).push(
-        MaterialPageRoute(
-          builder: (context) => const HomeScreen(),
-        ),
-      );},
+        Navigator.of(context).pop();},
       child: Icon(Icons.arrow_back_ios_new_rounded)),
   centerTitle: true,
   title: Text("Popular Now",style: TextStyle(
@@ -81,18 +79,30 @@ appBar: AppBar(
       body: Padding(
         padding: const EdgeInsets.only(top: 15),
         child: Center(
-          child: Container(
-            width: 380,
-            child: ListView.separated(
-                 separatorBuilder: (context,index)=>SizedBox(height: 15,),
-                scrollDirection: Axis.vertical,
-                itemCount: itemNameList.length,
-                itemBuilder:(context,index)=>itemHomeBuild(itemName: itemNameList,
-                    itemDetails: itemDetailsList,
-                    itemPrice: itemPriceList,
-                    itemImage: itemImageList,
-                    index: index
-                ) ),
+          child: InkWell(
+            // onTap: (){
+            //   Navigator.of(context).push(MaterialPageRoute(
+            //       builder: (context)=> DetailsPage(name: itemNameList,
+            //         image: itemImageList,
+            //         price: itemPriceList,
+            //         details: itemDetailsList,
+            //       )
+            //   )
+            //   );
+            // },
+            child: Container(
+              width: 380,
+              child: ListView.separated(
+                   separatorBuilder: (context,index)=>SizedBox(height: 15,),
+                  scrollDirection: Axis.vertical,
+                  itemCount: itemNameList.length,
+                  itemBuilder:(context,index)=>itemHomeBuild(itemName: itemNameList,
+                      itemDetails: itemDetailsList,
+                      itemPrice: itemPriceList,
+                      itemImage: itemImageList,
+                      index: index
+                  ) ),
+            ),
           ),
         ),
       ),
@@ -106,79 +116,91 @@ appBar: AppBar(
     required int index
 
   }) {
-    return Container(
-      child: Column(
-        children: [
-          Container(
-              height: 200,
-              child: Image.asset(itemImage[index])),
-          SizedBox(height: 6,),
-          Padding(
-            padding: const EdgeInsets.only(left: 9),
-            child: Row(children: [Text(itemName[index],style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 17
-            ),)],),
-          ),
-          SizedBox(height:5,),
-          Padding(
-            padding: const EdgeInsets.only(left:9),
-            child: Row(
-              children: [
-                Text(itemDetails[index],style: TextStyle(
-                  color: Colors.black.withOpacity(.5),
-                ),),
-              ],
+    return InkWell(
+      onTap: (){
+        Navigator.of(context).push(MaterialPageRoute(
+            builder: (context)=> DetailsPage(name: itemNameList[index],
+              image: itemImageList[index],
+              price: itemPriceList[index],
+              details: itemDetailsList[index],
+            )
+        )
+        );
+      },
+      child: Container(
+        child: Column(
+          children: [
+            Container(
+                height: 200,
+                child: Image.asset(itemImage[index])),
+            SizedBox(height: 6,),
+            Padding(
+              padding: const EdgeInsets.only(left: 9),
+              child: Row(children: [Text(itemName[index],style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 17
+              ),)],),
             ),
-          ),
-          SizedBox(height: 12,),
-          Padding(
-            padding: const EdgeInsets.only(left: 9.0),
-            child: Row(children: [
-              Text(itemPrice[index],style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 17,
-              ),),
-              Spacer(),
-              Padding(
-                padding: const EdgeInsets.only(right: 8.0),
-                child: InkWell(
-                  onTap: (){
-                    ScaffoldMessenger.of(context).showMaterialBanner(
-                      MaterialBanner(
-                          padding: EdgeInsets.all(20),
-                          leading: Icon(Icons.notifications_active_outlined,color: Colors.white,),
-                          backgroundColor: Color(0xFFE54A00),
-                          content: Text("Added to cart",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),),
-                          actions: [InkWell(
-                              onTap: (){
-                                ScaffoldMessenger.of(context).hideCurrentMaterialBanner();
-                              },
-                              child: Icon(Icons.exit_to_app,color: Colors.white,))]
+            SizedBox(height:5,),
+            Padding(
+              padding: const EdgeInsets.only(left:9),
+              child: Row(
+                children: [
+                  Text(itemDetails[index],style: TextStyle(
+                    color: Colors.black.withOpacity(.5),
+                  ),),
+                ],
+              ),
+            ),
+            SizedBox(height: 12,),
+            Padding(
+              padding: const EdgeInsets.only(left: 9.0),
+              child: Row(children: [
+                Text(itemPrice[index],style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 17,
+                ),),
+                Spacer(),
+                Padding(
+                  padding: const EdgeInsets.only(right: 8.0),
+                  child: InkWell(
+                    onTap: (){
+                      ScaffoldMessenger.of(context).showMaterialBanner(
+                        MaterialBanner(
+                            padding: EdgeInsets.all(20),
+                            leading: Icon(Icons.notifications_active_outlined,color: Colors.white,),
+                            backgroundColor: Color(0xFFE54A00),
+                            content: Text("Added to cart",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),),
+                            actions: [InkWell(
+                                onTap: (){
+                                  ScaffoldMessenger.of(context).hideCurrentMaterialBanner();
+                                },
+                                child: Icon(Icons.exit_to_app,color: Colors.white,))]
+                        ),
+                      );
+                    },
+                    child: Container(
+                      width: 30,
+                      height: 30,
+                      decoration: BoxDecoration(
+                          color: Color(0xFFE54A00),
+                          borderRadius: BorderRadius.circular(10)
                       ),
-                    );
-                  },
-                  child: Container(
-                    width: 30,
-                    height: 30,
-                    decoration: BoxDecoration(
-                        color: Color(0xFFE54A00),
-                        borderRadius: BorderRadius.circular(10)
+                      child: Icon(Icons.add,color: Colors.white,size: 25,),
                     ),
-                    child: Icon(Icons.add,color: Colors.white,size: 25,),
                   ),
-                ),
-              )
-            ],),
-          )
-        ],
+                )
+              ],),
+            )
+          ],
+        ),
+        width: 100,
+        height: 310,
+        decoration:BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(20)
+        ) ,
       ),
-      width: 100,
-      height: 310,
-      decoration:BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(20)
-      ) ,
     );
   }
 }
