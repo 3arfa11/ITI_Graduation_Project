@@ -176,25 +176,9 @@ class LoginScreenState extends State<LoginScreen> {
                       ),
                       Row(
                         children: [
+
                           Padding(
-                            padding: const EdgeInsets.only(left: 15.0),
-                            child: Checkbox(
-                              value: isChecked,
-                              side: BorderSide(color: Colors.grey),
-                              activeColor: Colors.deepOrange,
-                              onChanged: (newBool) {
-                                setState(() {
-                                  isChecked = newBool!;
-                                });
-                              },
-                            ),
-                          ),
-                          Text(
-                            "Remember me ",
-                            style: TextStyle(color: Colors.grey),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.only(left: 105),
+                            padding: const EdgeInsets.only(left: 260),
                             child: Text(
                               "Frogot Password?",
                               style: TextStyle(color: Colors.grey),

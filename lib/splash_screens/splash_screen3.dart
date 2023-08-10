@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:itifinalproject/login/login_screen.dart';
 import 'package:itifinalproject/login/sign_up_screen.dart';
+
+import '../navigationBar.dart';
 class SplashScreen3 extends StatefulWidget {
   const SplashScreen3({super.key});
 

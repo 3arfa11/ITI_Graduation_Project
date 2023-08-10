@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:itifinalproject/payment_page2.dart';
 class PaymentScreen extends StatefulWidget {
   const PaymentScreen({super.key});
 
@@ -47,18 +48,24 @@ class _PaymentScreenState extends State<PaymentScreen> {
             paymentMethodBuilder(name: "Applepay",image:"assets/images/applePay.png",index:2,sizedBox: 172),
             SizedBox(height: 80,),
             Center(
-              child: Container(
-                child: Center(child: Text("Continue",style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 22,
-                  fontWeight: FontWeight.bold,
-                ),),),
-                decoration: BoxDecoration(
-                  color: Colors.deepOrange,
-                  borderRadius: BorderRadius.circular(20)
+              child: InkWell(
+                onTap: (){
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => const PaymentPage()),);
+                },
+                child: Container(
+                  child: Center(child: Text("Continue",style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 22,
+                    fontWeight: FontWeight.bold,
+                  ),),),
+                  decoration: BoxDecoration(
+                    color: Colors.deepOrange,
+                    borderRadius: BorderRadius.circular(20)
+                  ),
+                  width: 360,
+                  height: 65,
                 ),
-                width: 360,
-                height: 65,
               ),
             )
             // Center(

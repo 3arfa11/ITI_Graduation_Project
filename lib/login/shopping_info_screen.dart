@@ -57,7 +57,9 @@ class _ShoppingInfoScreenState extends State<ShoppingInfoScreen> {
         title: Text("Shopping Informaion",style: TextStyle(
           color: Colors.black
         ),),
-        leading: Icon(Icons.arrow_back_ios,color: Colors.black,),
+        leading: InkWell(
+            onTap: () => Navigator.of(context).pop(),
+            child: Icon(Icons.arrow_back_ios,color: Colors.black,)),
         backgroundColor: Colors.white,
         elevation:0 ,
       ),

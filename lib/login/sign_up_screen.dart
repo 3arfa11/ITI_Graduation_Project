@@ -166,7 +166,12 @@ class SignUpScreenState extends State<SignUpScreen> {
                           validator: (value) {
                             if (_emailController.text.length == 0) {
                               return "Empty Fields,Enter your Email";
-                            } else {
+                            }
+                            else if(!RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w ]{2,4}').hasMatch(value!))
+                            {
+                              return "email form is not validated";
+                            }
+                            else {
                               return null;
                             }
                           },

@@ -1,10 +1,17 @@
+import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:ionicons/ionicons.dart';
+import 'package:itifinalproject/cart.dart';
+import 'package:itifinalproject/category.dart';
 import 'package:itifinalproject/item_details.dart';
+import 'package:itifinalproject/login/shopping_info_screen.dart';
+import 'package:itifinalproject/payment_page1.dart';
+import 'package:itifinalproject/payment_page2.dart';
 import 'package:itifinalproject/popular_now.dart';
 import 'package:itifinalproject/profile_page.dart';
+import 'package:url_launcher/url_launcher.dart';
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
@@ -13,10 +20,29 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  launchURL(String url) async{
+    if(await canLaunch(url)){
+      await launch(url);
+    }
+    else{throw "could not launch $url";}
+  }
+  List<Widget> topDrawerList = [
+    CartPage(),
+    PaymentScreen(),
+    ShoppingInfoScreen()
+  ];
+  List<Widget> bottmDrawerList = [
+    PopularNowScreen(),
+    CategoryPage(),
+    ProfileScreen(),
+
+  ];
+
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
       drawer:Container(
         width: 350,
         child: Drawer(
@@ -54,7 +80,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 Row(
                                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                   children: [
-                                    Text("Ramy Awd",style: TextStyle(
+                                    Text("Mohamed",style: TextStyle(
                                       fontSize: 20,
                                       color: Colors.black,
                                       fontWeight: FontWeight.w700,
@@ -81,7 +107,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 Row(
                                   mainAxisAlignment: MainAxisAlignment.start,
                                   children: [
-                                    Text("ramy.awd99@gmail.com",
+                                    Text("sami@gmail.com",
                                       style: TextStyle(
                                           color: Colors.grey,
                                           fontWeight: FontWeight.w500,
@@ -108,18 +134,53 @@ class _HomeScreenState extends State<HomeScreen> {
                             height: 250,
                             child: ListView.separated(separatorBuilder: (context,index)=>SizedBox(height: 20,),
                                 itemCount: texts1.length,
-                                itemBuilder: (context,index)=>_buildBars(icons1,texts,texts1,index)),
+                                itemBuilder: (context,index)=>_buildBars(icons1,texts,texts1,index,topDrawerList)),
                           ),
                           Divider(color: Colors.black,indent: 16,endIndent: 16,),
                           SizedBox(height: 30,),
                           Container(
-                            height: 300,
+                            height: 230,
                             child: ListView.separated(
 
                                 separatorBuilder: (context,index)=>SizedBox(height: 20,),
                                 itemCount: texts2.length,
-                                itemBuilder: (context,index)=>_buildBars(icons2,texts2,texts3,index)),
+                                itemBuilder: (context,index)=>_buildBars(icons2,texts2,texts3,index,bottmDrawerList)),
                           ),
+                          SizedBox(height:0,),
+                          //LOCATION
+                          InkWell(
+                            onTap: () {
+                              const url = "https://goo.gl/maps/yctXEvtnYX22jmNZ7";
+                              launch(url);
+
+                            },
+                            child: Container(
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(12),
+                                border: Border.all(color: Colors.grey.shade100,width: 1),
+                                color: Colors.white
+                              ),
+                              width: 305,
+                              height: 55,
+                              child: Row(
+                                children: [
+                                  SizedBox(width: 8,),
+                                  Icon(Icons.location_on_outlined,size: 28,color: Color(0xFFE54A00)),
+                                  SizedBox(width: 7,),
+                                  Text("Location",style: TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.bold
+                                  ),),
+                                  Spacer(),
+                                  Padding(
+                                    padding: const EdgeInsets.only(right: 7),
+                                    child: Icon(Icons.arrow_forward_ios,color: Color(0xFFE54A00),),
+                                  )
+                                ],
+                              ),
+                            ),
+                          )
                         ],
                       ),
                     ),
@@ -194,7 +255,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     child: TextFormField(
                       onTap: (){
                         Navigator.of(context).push(MaterialPageRoute(
-                            builder:(context) => ProfileScreen()));
+                            builder:(context) => CategoryPage()));
                       },
                       decoration: InputDecoration(
                         prefixIcon: InkWell(
@@ -309,86 +370,10 @@ class _HomeScreenState extends State<HomeScreen> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Container(
-                    child: Column(
-                      children: [
-                        Container(
-                            height: 68,
-                            width: 80,
-                            child: Image.asset("assets/images/bur1.png")),
-                        Text("Burger",style: TextStyle(
-                          fontWeight:FontWeight.bold,
-                          fontSize: 17
-                        ),)
-                      ],
-                    ),
-                    width: 90,
-                    height: 90,
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(15)
-                    ),
-                  ),
-                  Container(
-                    child: Column(
-                      children: [
-                        Container(
-                            width: 70,
-                            height: 60,
-                            child: Image.asset("assets/images/pizza2.png")),
-                          SizedBox(height: 7,),
-                        Text("Pizza",style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 16
-                            ),)
-                      ],
-                    ),
-                    width: 90,
-                    height: 90,
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(15)
-                    ),
-                  ),
-                  Container(
-                    child: Column(
-                      children: [
-                        Container(
-                            height: 66,
-                            child: Image.asset("assets/images/crepe.png")),
-                        Text("Creap",style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 16
-                        ),)
-                      ],
-                    ),
-                    width: 90,
-                    height: 90,
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(15)
-                    ),
-                  ),
-                  Container(
-                    child: Column(
-                      children: [
-                        Container(
-                            height: 66,
-                            width: 55,
-                            child: Image.asset("assets/images/meal.png")),
-                        Text("Meals",style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 16
-                        ),)
-                      ],
-                    ),
-                    width: 90,
-                    height: 90,
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(15)
-                    ),
-                  ),
+                  categoryHomeBuilder(name: "Burger",image: "assets/images/bur1.png"),
+                  categoryHomeBuilder(name: "Pizza",image: "assets/images/pizza2.png"),
+                  categoryHomeBuilder(name: "Creap",image:"assets/images/crepe.png"),
+                  categoryHomeBuilder(name: "Meals",image:"assets/images/meal.png"),
 
                 ],
 
@@ -404,7 +389,7 @@ class _HomeScreenState extends State<HomeScreen> {
                      MaterialPageRoute(
                        builder: (context) =>  DetailsPage(name:"Beef Burger",
                          image: "assets/images/beefburger.png",
-                         price: "138",
+                         price: "138 L.E",
                          details:  "classic double cheese burger with beef patty,pickles, chesse,tomato,onion,ketchup and,mustard",
                        ),
                      ),
@@ -413,7 +398,7 @@ class _HomeScreenState extends State<HomeScreen> {
                  child: itemHomeBuild(
                      itemName: "Beef Burger",
                      itemDetails: "Double beef+cheese",
-                     itemPrice: "138",
+                     itemPrice: "138 L.E",
                      itemImage: "assets/images/beefburger.png"),
                ),
                 SizedBox(width: 25,),
@@ -480,7 +465,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       MaterialPageRoute(
                         builder: (context) =>  DetailsPage(name:"Chicken Burger",
                           image: "assets/images/chickenburger.png",
-                          price: "125",
+                          price: "125 L.E",
                           details: "classic cheese burger with Chicken chesse,tomato,onion,ketchup and,mustard",
                         ),
                       ),
@@ -489,13 +474,14 @@ class _HomeScreenState extends State<HomeScreen> {
                   child: itemHomeBuild(
                       itemName: "Chicken Burger",
                       itemDetails: "Double chicken+cheese",
-                      itemPrice: "122",
+                      itemPrice: "122 L.E",
                       itemImage: "assets/images/chickenburger.png"),
                 ),
 
               ],
             ),
             SizedBox(height: 20,),
+            //POPULAR NOW ROW
             Row(
               children: [
                 SizedBox(width:15 ,),
@@ -570,6 +556,35 @@ class _HomeScreenState extends State<HomeScreen> {
           ],
         ),
       ),
+    );
+  }
+//CATEGORY
+  Widget categoryHomeBuilder({required String name,required String image}) {
+    return InkWell(
+      onTap: (){
+        Navigator.of(context).push(
+            MaterialPageRoute(builder: (context)=>CategoryPage()));
+      },
+      child: Container(
+                    child: Column(
+                      children: [
+                        Container(
+                            height: 68,
+                            width: 80,
+                            child: Image.asset(image)),
+                        Text(name,style: TextStyle(
+                          fontWeight:FontWeight.bold,
+                          fontSize: 17
+                        ),)
+                      ],
+                    ),
+                    width: 90,
+                    height: 90,
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(15)
+                    ),
+                  ),
     );
   }
 
@@ -657,29 +672,27 @@ class _HomeScreenState extends State<HomeScreen> {
   List<Widget> icons1=[
     Icon(Icons.shopping_bag_outlined,color: Color(0xFFE54A00),size: 28,),
     Icon(Ionicons.wallet_outline,color: Color(0xFFE54A00),size: 28,),
-    Icon(CupertinoIcons.heart,color: Color(0xFFE54A00),size: 28,),
+    Icon(CupertinoIcons.location_circle,color: Color(0xFFE54A00),size: 28,),
   ];
   List<Widget> icons2=[
-    Icon(Icons.percent_rounded,color: Color(0xFFE54A00),size: 28,),
-    Icon(Icons.phone_rounded,color: Color(0xFFE54A00),size: 28,),
-    Icon(Icons.settings_rounded,color: Color(0xFFE54A00),size: 28,),
+    Icon(Icons.local_fire_department_outlined,color: Color(0xFFE54A00),size: 28,),
+    Icon(Icons.category_outlined,color: Color(0xFFE54A00),size: 28,),
     Icon(CupertinoIcons.info_circle,color: Color(0xFFE54A00),size: 28,),
   ];
   List<String> texts=[
-    "My Orders",
-    "My Wallet",
-    "Favourite",
+    "Cart",
+    "Payment",
+    "Location",
   ];
   List<String> texts1=[
-    "3 orders",
-    "450 L.E",
-    "2 items",
+    "3 items",
+    "PayPal",
+    "2 locations",
   ];
 
   List<String> texts2=[
-    "Offers",
-    "Contact us",
-    "Setting",
+    "Popular now",
+    "Category",
     "About us",
   ];
 
@@ -689,46 +702,53 @@ class _HomeScreenState extends State<HomeScreen> {
     "",
     "",
   ];
-  Row _buildBars(List<Widget> icon,List<String> text,List<String> text2,int index ) {
+  Row _buildBars(List<Widget> icon,List<String> text,List<String> text2,int index,List<Widget> list ) {
     return Row(
       children: <Widget>[
-        Container(
-            width:305 ,
-            height: 55,
-            decoration: BoxDecoration(
-                color: Colors.white.withOpacity(0.45),
-                borderRadius: BorderRadius.circular(7),
-                border: Border.all(color: Color(0xFFF6F6F6))
-            ),
-            child:Padding(
-              padding: const EdgeInsets.only(left: 12.0,right: 5),
-              child: Row(
-                children: [
-                  icon[index],
-                  SizedBox(width: 8,),
-                  Text(text[index],
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 20,
-                      fontWeight: FontWeight.w500,
-                    ),
-                  ),
-                  SizedBox(width: 28,),
-                  Text(text2[index],
-                    style: TextStyle(
-                      color: Colors.grey,
-                      fontSize: 18,
-                      fontWeight: FontWeight.w400,
-                    ),
-                  ),
-                  Spacer(),
-                  Icon(Icons.arrow_forward_ios_rounded,color: Color(0xFFE54A00),)
-                ],
+        InkWell(
+          onTap: (){
+            Navigator.of(context).push(MaterialPageRoute(
+                builder:(context)=>list[index]));
+          },
+          child: Container(
+              width:305 ,
+              height: 55,
+              decoration: BoxDecoration(
+                  color: Colors.white.withOpacity(0.45),
+                  borderRadius: BorderRadius.circular(7),
+                  border: Border.all(color: Color(0xFFF6F6F6))
               ),
-            )
+              child:Padding(
+                padding: const EdgeInsets.only(left: 12.0,right: 5),
+                child: Row(
+                  children: [
+                    icon[index],
+                    SizedBox(width: 8,),
+                    Text(text[index],
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 20,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                    SizedBox(width: 28,),
+                    Text(text2[index],
+                      style: TextStyle(
+                        color: Colors.grey,
+                        fontSize: 18,
+                        fontWeight: FontWeight.w400,
+                      ),
+                    ),
+                    Spacer(),
+                    Icon(Icons.arrow_forward_ios_rounded,color: Color(0xFFE54A00),)
+                  ],
+                ),
+              )
+          ),
         ),
       ],
     );
   }
+
 }
 

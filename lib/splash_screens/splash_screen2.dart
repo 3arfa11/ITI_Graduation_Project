@@ -23,7 +23,8 @@ class _SplashScreen2State extends State<SplashScreen2> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             SizedBox(height: 0,),
-            Image.asset("assets/images/onboarding2.png"),
+            Container(
+                child: Image.asset("assets/images/onboarding2.png")),
             SizedBox(height: 45,),
             Text("Deliver your order fast ",style: TextStyle(
               fontWeight: FontWeight.bold,

@@ -31,7 +31,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
             child: Icon(Icons.arrow_back_ios,color: Colors.black,size: 25,)),
         centerTitle: true,
         title: Text("Profile",style: TextStyle(
-          fontSize: 20,
+          fontSize: 23,
           color: Colors.black,
           fontWeight: FontWeight.bold
         ),),
@@ -58,7 +58,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         ),
                       ),
                     SizedBox(width: 20,),
-                      Text(SignUpScreenState.box1.get("name"),style: TextStyle(
+                      Text("Mohamed Sami",style: TextStyle(
                         fontWeight: FontWeight.bold,
                         color: Colors.white,
                         fontSize: 23,
@@ -81,9 +81,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                               fontSize: 20,
                             ),),
                             SizedBox(width: 40,),
-                            Text(SignUpScreenState.box1.get("email"),style: TextStyle(
+                            Text("msamii@gmail.com",style: TextStyle(
                               color: Colors.white,
-                              fontSize: 15
+                              fontSize: 19
                             ),)
                           ],
                         ),
@@ -99,7 +99,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             ),),SizedBox(width: 30,),
                             Text("01005666277",style: TextStyle(
                               color: Colors.white,
-                              fontSize: 17,
+                              fontSize: 18,
                             ),)
                           ],
                         ),
@@ -116,7 +116,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             SizedBox(width: 30,),
                             Text("Egypt",style: TextStyle(
                               color: Colors.white,
-                              fontSize: 17,
+                              fontSize: 18,
                               fontWeight: FontWeight.bold
                             ),),
                           ],
@@ -135,7 +135,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             SizedBox(width: 30,),
                             Text("Amazon",style: TextStyle(
                               color: Colors.white,
-                              fontSize: 17,
+                              fontSize: 18,
                               fontWeight: FontWeight.bold
                             ),),
                           ],
@@ -213,7 +213,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 ],
               ),
               width: double.infinity,
-              height: 700,
+              height: 800,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.only(topLeft: Radius.circular(20),topRight:Radius.circular(20)),
                 color: Color(0xFFE54A00)

@@ -3,7 +3,7 @@ import 'package:itifinalproject/hive/boxes.dart';
 
 class HiveHelper{
 
-  static List<String> infoList =[];
+  static List<String> infoList =["Home","Office"];
   static void addToList(String title) async{
     infoList.add(title);
     await Hive.box(infoBox).put(infoBox, infoList);
