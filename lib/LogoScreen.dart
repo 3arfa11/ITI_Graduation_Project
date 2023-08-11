@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:itifinalproject/splash_screens/splash_screen1.dart';
 class LogoScreen extends StatefulWidget {
   const LogoScreen({super.key});
@@ -20,13 +21,23 @@ class _LogoScreenState extends State<LogoScreen> {
   }
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual,
+        overlays: [SystemUiOverlay.top]);
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.deepOrange,
+        elevation: 0,
+        systemOverlayStyle: SystemUiOverlayStyle(
+          statusBarColor: Colors.deepOrange,
+        ),
+      ),
       backgroundColor: Colors.deepOrange,
       body: Center(child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Image.asset("assets/images/logo2.png"),
-          Text("Food Delivry",style: TextStyle(
+          SizedBox(height: 15,),
+          Text("Resto",style: TextStyle(
             color: Colors.white,
             fontSize: 35,
             fontWeight: FontWeight.bold,

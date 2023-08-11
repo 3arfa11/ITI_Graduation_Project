@@ -245,7 +245,7 @@ class _DetailsPageState extends State<DetailsPage> {
       top: 385,
       left: 158,
       child: Container(
-        width: 125,
+
         height: 50,
         decoration: BoxDecoration(
             color: Colors.grey.shade300,
@@ -253,6 +253,7 @@ class _DetailsPageState extends State<DetailsPage> {
             border: Border.all(color: Colors.grey.shade300)
         ),
         child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Padding(
               padding: const EdgeInsets.only(left: 12.0),

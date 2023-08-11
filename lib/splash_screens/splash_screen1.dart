@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/services.dart';
 import 'package:itifinalproject/splash_screens/splash_screen2.dart';
-
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import '../login/login_screen.dart';
 
 class SplashScreen1 extends StatefulWidget {
@@ -15,6 +15,8 @@ class _SplashScreen1State extends State<SplashScreen1> {
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual,
+        overlays: [SystemUiOverlay.bottom]);
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.only(top: 0),
@@ -24,14 +26,14 @@ class _SplashScreen1State extends State<SplashScreen1> {
             SizedBox(height: 0,),
             Image.asset("assets/images/onboadring1.jpg"),
             SizedBox(height: 30,),
-            Text("Choose Your Favourite Meal",style: TextStyle(
+            Text(AppLocalizations.of(context)!.chooseyourmeal,style: TextStyle(
               fontWeight: FontWeight.bold,
               color: Colors.black,
               fontSize: 25,
             ),),
             SizedBox(height: 20,),
-            Text("Choose your favourite meal and explore\n                      our daily offers",style: TextStyle(
-              fontSize: 15,
+            Text(AppLocalizations.of(context)!.chooseyourmealand,style: TextStyle(
+              fontSize: 18,
               color: Colors.grey,
             ),),
             SizedBox(height: 30,),
@@ -69,7 +71,7 @@ class _SplashScreen1State extends State<SplashScreen1> {
                     borderRadius: BorderRadius.circular(17)
                 ),
                 child: Center(
-                  child: Text("Next",style: TextStyle(
+                  child: Text(AppLocalizations.of(context)!.next,style: TextStyle(
                     color: Colors.white,
                     fontSize: 26,
                   ),),
@@ -87,7 +89,7 @@ class _SplashScreen1State extends State<SplashScreen1> {
                   ),
                 );
               },
-              child: Text("Skip",style: TextStyle(
+              child: Text(AppLocalizations.of(context)!.skip,style: TextStyle(
                 color: Colors.grey,
                 fontSize: 20,
               ),),

@@ -5,6 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:itifinalproject/cart.dart';
 import 'package:itifinalproject/category.dart';
+import 'package:itifinalproject/dio/dio_helper.dart';
 import 'package:itifinalproject/item_details.dart';
 import 'package:itifinalproject/login/shopping_info_screen.dart';
 import 'package:itifinalproject/payment_page1.dart';
@@ -80,11 +81,19 @@ class _HomeScreenState extends State<HomeScreen> {
                                 Row(
                                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                   children: [
-                                    Text("Mohamed",style: TextStyle(
-                                      fontSize: 20,
-                                      color: Colors.black,
-                                      fontWeight: FontWeight.w700,
-                                    ),
+                                    InkWell(
+                                      onTap:(){
+                                        Navigator.of(context).push(
+                                          MaterialPageRoute(
+                                              builder: (context)=>ProfileScreen())
+                                        );
+                                    },
+                                      child: Text("Mohamed",style: TextStyle(
+                                        fontSize: 20,
+                                        color: Colors.black,
+                                        fontWeight: FontWeight.w700,
+                                      ),
+                                      ),
                                     ),
                                     SizedBox(width: 114,),
                                     InkWell(
@@ -693,7 +702,7 @@ class _HomeScreenState extends State<HomeScreen> {
   List<String> texts2=[
     "Popular now",
     "Category",
-    "About us",
+    "About ",
   ];
 
   List<String> texts3=[

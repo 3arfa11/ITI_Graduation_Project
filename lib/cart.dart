@@ -379,7 +379,6 @@ class _CartPageState extends State<CartPage> {
                                 top: 15
                             ),
                             child: Container(
-                                width: 115,
                                 height: 38,
                                 decoration: BoxDecoration(
                                     color: Colors.grey.shade300,
@@ -387,12 +386,8 @@ class _CartPageState extends State<CartPage> {
                                     border: Border.all(
                                         color: Colors.grey.shade300)
                                 ),
-                                child:
-                                Column(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-
-                                    Row(
+                                child:Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                       children: [
                                         Padding(
                                           padding: const EdgeInsets.only(
@@ -448,8 +443,7 @@ class _CartPageState extends State<CartPage> {
                                       ],
                                     ),
 
-                                  ],
-                                )
+
 
                             ),
                           ),
@@ -578,7 +572,6 @@ class _CartPageState extends State<CartPage> {
                                 top: 15
                             ),
                             child: Container(
-                                width: 128,
                                 height: 40,
                                 decoration: BoxDecoration(
                                     color: Colors.grey.shade300,
@@ -587,10 +580,8 @@ class _CartPageState extends State<CartPage> {
                                         color: Colors.grey.shade300)
                                 ),
                                 child:
-                                Column(
-                                  mainAxisAlignment:MainAxisAlignment.center,
-                                  children: [
                                     Row(
+                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                       children: [
                                         Padding(
                                           padding: const EdgeInsets.only(
@@ -646,8 +637,6 @@ class _CartPageState extends State<CartPage> {
                                       ],
                                     ),
 
-                                  ],
-                                )
 
                             ),
                           ),
@@ -776,7 +765,7 @@ class _CartPageState extends State<CartPage> {
                                 top: 15
                             ),
                             child: Container(
-                                width: 118,
+
                                 height: 38,
                                 decoration: BoxDecoration(
                                     color: Colors.grey.shade300,
@@ -785,11 +774,12 @@ class _CartPageState extends State<CartPage> {
                                         color: Colors.grey.shade300)
                                 ),
                                 child:
-                                Column(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
+
+
+
 
                                     Row(
+                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                       children: [
                                         Padding(
                                           padding: const EdgeInsets.only(
@@ -846,8 +836,6 @@ class _CartPageState extends State<CartPage> {
                                       ],
                                     ),
 
-                                  ],
-                                )
 
                             ),
                           ),

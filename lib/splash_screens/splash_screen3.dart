@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:itifinalproject/login/login_screen.dart';
 import 'package:itifinalproject/login/sign_up_screen.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import '../navigationBar.dart';
 class SplashScreen3 extends StatefulWidget {
@@ -27,15 +28,14 @@ class _SplashScreen3State extends State<SplashScreen3> {
             Container(
               height: 616,
                 child: Image.asset("assets/images/map.jpg")),
-            SizedBox(height: 20,),
-            Text("Free delivry offers",style: TextStyle(
+            SizedBox(height: 15,),
+            Text(AppLocalizations.of(context)!.freedelivryoffers,style: TextStyle(
               fontWeight: FontWeight.bold,
               color: Colors.black,
               fontSize: 25,
             ),),
             SizedBox(height: 10,),
-            Text("Get all your loved foods in one once place, \n "
-                "  you just place the order we do the rest",style: TextStyle(
+            Text(AppLocalizations.of(context)!.getallyourlovedfoods,style: TextStyle(
               fontSize: 15,
               color: Colors.grey,
             ),),
@@ -74,7 +74,7 @@ class _SplashScreen3State extends State<SplashScreen3> {
                     borderRadius: BorderRadius.circular(17)
                 ),
                 child: Center(
-                  child: Text("Next",style: TextStyle(
+                  child: Text(AppLocalizations.of(context)!.next,style: TextStyle(
                     color: Colors.white,
                     fontSize: 26,
                   ),),
@@ -92,9 +92,9 @@ class _SplashScreen3State extends State<SplashScreen3> {
                   ),
                 );
               },
-              child: Text("Skip",style: TextStyle(
+              child: Text(AppLocalizations.of(context)!.skip,style: TextStyle(
                 color: Colors.grey,
-                fontSize: 20,
+                fontSize: 18,
               ),),
             ),
           ],

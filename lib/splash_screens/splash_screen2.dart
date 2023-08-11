@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:itifinalproject/login/login_screen.dart';
 import 'package:itifinalproject/splash_screens/splash_screen3.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 class SplashScreen2 extends StatefulWidget {
   const SplashScreen2({super.key});
 
@@ -26,14 +28,14 @@ class _SplashScreen2State extends State<SplashScreen2> {
             Container(
                 child: Image.asset("assets/images/onboarding2.png")),
             SizedBox(height: 45,),
-            Text("Deliver your order fast ",style: TextStyle(
+            Text(AppLocalizations.of(context)!.deliveryourorderfast,style: TextStyle(
               fontWeight: FontWeight.bold,
               color: Colors.black,
               fontSize: 27,
             ),),
             SizedBox(height: 30,),
-            Text("Fast delivery of your order and available\n                      cash on delivry",style: TextStyle(
-              fontSize: 18,
+            Text(AppLocalizations.of(context)!.fastdelivryofyourorder,style: TextStyle(
+              fontSize: 20,
               color: Colors.grey,
             ),),
             SizedBox(height: 40,),
@@ -71,7 +73,7 @@ class _SplashScreen2State extends State<SplashScreen2> {
                     borderRadius: BorderRadius.circular(17)
                 ),
                 child: Center(
-                  child: Text("Next",style: TextStyle(
+                  child: Text(AppLocalizations.of(context)!.next,style: TextStyle(
                     color: Colors.white,
                     fontSize: 26,
                   ),),
@@ -89,7 +91,7 @@ class _SplashScreen2State extends State<SplashScreen2> {
                   ),
                 );
               },
-              child: Text("Skip",style: TextStyle(
+              child: Text(AppLocalizations.of(context)!.skip,style: TextStyle(
                 color: Colors.grey,
                 fontSize: 20,
               ),),
