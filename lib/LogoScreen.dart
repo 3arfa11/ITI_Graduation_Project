@@ -14,7 +14,7 @@ class _LogoScreenState extends State<LogoScreen> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    Timer(Duration(seconds: 3),() => Navigator.of(context).pushReplacement(
+    Timer(Duration(seconds: 5),() => Navigator.of(context).pushReplacement(
       MaterialPageRoute(builder: (BuildContext context)=> SplashScreen1() ),
     ),
     );

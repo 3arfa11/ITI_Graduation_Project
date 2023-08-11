@@ -80,32 +80,35 @@ class _ShoppingInfoScreenState extends State<ShoppingInfoScreen> {
         },
 
       ),
-      body: BlocBuilder<ShoppingInfoCubit,ShoppingInfoState>(
-        builder: (context,state){
-          if(state is ShoppingLoadingState){
-            return Center(child: CircularProgressIndicator(),);
-          }
-          else if(state is ShoppingEmptyState){
-            return Center(
-              child:Text("There is no locations",style: TextStyle(fontSize: 35),),
-            );
-          }
-          else{
-            return ListView.separated(
-              padding: EdgeInsets.all(20),
-                itemBuilder: (context,index) =>_buildNoteItem(
-                  text: HiveHelper.infoList[index],
-                  index: index,
-                  cubit: cubit,
-                ),
+      body: Directionality(
+        textDirection: TextDirection.ltr,
+        child: BlocBuilder<ShoppingInfoCubit,ShoppingInfoState>(
+          builder: (context,state){
+            if(state is ShoppingLoadingState){
+              return Center(child: CircularProgressIndicator(),);
+            }
+            else if(state is ShoppingEmptyState){
+              return Center(
+                child:Text("There is no locations",style: TextStyle(fontSize: 35),),
+              );
+            }
+            else{
+              return ListView.separated(
+                padding: EdgeInsets.all(20),
+                  itemBuilder: (context,index) =>_buildNoteItem(
+                    text: HiveHelper.infoList[index],
+                    index: index,
+                    cubit: cubit,
+                  ),
 
-                separatorBuilder: (context,index) =>SizedBox(height: 20,),
-                itemCount: HiveHelper.infoList.length
+                  separatorBuilder: (context,index) =>SizedBox(height: 20,),
+                  itemCount: HiveHelper.infoList.length
 
 
-            );
-          }
-        },
+              );
+            }
+          },
+        ),
       )
     );
   }

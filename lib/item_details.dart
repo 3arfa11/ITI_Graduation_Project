@@ -33,28 +33,31 @@ class _DetailsPageState extends State<DetailsPage> {
     return Scaffold(
       backgroundColor: Colors.grey.shade200,
       appBar: _buildAppBar(),
-      body: Stack(
-          children:[ SingleChildScrollView(
-            child: Column(
-                children: [
-                  Container(
-                    height: 420,
-                    width: double.infinity,
-                    decoration: BoxDecoration(
-                        color: Colors.white.withOpacity(0.8),
-                        borderRadius: BorderRadius.only(bottomLeft:Radius.elliptical(250, 105)
-                            ,bottomRight:Radius.elliptical(250, 105))
+      body: Directionality(
+        textDirection: TextDirection.ltr,
+        child: Stack(
+            children:[ SingleChildScrollView(
+              child: Column(
+                  children: [
+                    Container(
+                      height: 420,
+                      width: double.infinity,
+                      decoration: BoxDecoration(
+                          color: Colors.white.withOpacity(0.8),
+                          borderRadius: BorderRadius.only(bottomLeft:Radius.elliptical(250, 105)
+                              ,bottomRight:Radius.elliptical(250, 105))
 
+                      ),
+                      child: Image.asset(widget.image),
                     ),
-                    child: Image.asset(widget.image),
-                  ),
-                  _buildCentreData(widget.name),
-                  _buildBottomContainer(widget.price),
-                ]
+                    _buildCentreData(widget.name),
+                    _buildBottomContainer(widget.price),
+                  ]
+              ),
             ),
-          ),
-            _buildAddtion()
-          ]
+              _buildAddtion()
+            ]
+        ),
       ),
 
     );

@@ -47,28 +47,31 @@ class _CategoryPageState extends State<CategoryPage> {
           left: 12.0,
           top: 15,
         ),
-        child: SingleChildScrollView(
-          child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                _buildSearchField(),
-                SizedBox(height: 24,),
-                Text("Top Categories",
-                  style: TextStyle(
-                    color: Color(0xFF727272),
-                    fontWeight: FontWeight.w600,
-                    fontSize: 22,
-                  ),),
-                SizedBox(height: 21,),
-                _buildCategories("Pizza",pizza,"Crepe",crepe),
-                SizedBox(height: 18,),
-                _buildCategories("Pasta", pasta, "Bruger", bruger),
-                SizedBox(height: 18,),
-                _buildCategories("Meals", meals, "Coffee", coffee),
+        child: Directionality(
+          textDirection: TextDirection.ltr,
+          child: SingleChildScrollView(
+            child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  _buildSearchField(),
+                  SizedBox(height: 24,),
+                  Text("Top Categories",
+                    style: TextStyle(
+                      color: Color(0xFF727272),
+                      fontWeight: FontWeight.w600,
+                      fontSize: 22,
+                    ),),
+                  SizedBox(height: 21,),
+                  _buildCategories("Pizza",pizza,"Crepe",crepe),
+                  SizedBox(height: 18,),
+                  _buildCategories("Pasta", pasta, "Bruger", bruger),
+                  SizedBox(height: 18,),
+                  _buildCategories("Meals", meals, "Coffee", coffee),
 
 
 
-              ]
+                ]
+            ),
           ),
         ),
       ),

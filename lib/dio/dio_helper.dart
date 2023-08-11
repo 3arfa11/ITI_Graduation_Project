@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import '../home_screen.dart';
 import '../login/login_screen.dart';
 import '../model/LoginModel.dart';
+import '../navigationBar.dart';
 
 Map<String,dynamic> headers ={
   "Accept":"application/json",
@@ -42,7 +43,7 @@ class DioHelper{
         print(model.message);
       }
       else{
-        Get.offAll(HomeScreen());
+        Get.offAll(NavBar());
       }
 
     }

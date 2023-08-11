@@ -39,9 +39,9 @@ class MyApp extends StatelessWidget {
       child: GetMaterialApp(
         localizationsDelegates: AppLocalizations.localizationsDelegates,
         supportedLocales: AppLocalizations.supportedLocales,
-        locale: Locale('ar'),
+        locale: Locale('en'),
         debugShowCheckedModeBanner: false,
-        home:  SplashScreen1(),
+        home:  LogoScreen(),
       ),
     );
   }

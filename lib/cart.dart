@@ -73,218 +73,221 @@ class _CartPageState extends State<CartPage> {
         body:
         Padding(
           padding: const EdgeInsets.all(14.0),
-          child: SingleChildScrollView(
-            child: Column(
-              children: [
-                Row(
-                  children: [
-                    Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children:
-                        [
+          child: Directionality(
+            textDirection: TextDirection.ltr,
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  Row(
+                    children: [
+                      Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children:
+                          [
 
-                          if(flag==false)
-                            _buildStack(big, "Beef Bruger",
-                                "Extra Chesse", "137 L.E"),
-                          if(flag2==false)
-                            SizedBox(height: 40,),
-                          if(flag2==false)
-                            _buildStack2(crepe,"Chesse crepe","Extra Chesse","137 L.E"),
-                          if(flag2==false)
-                            SizedBox(height: 40,),
-                          if(flag3==false)
-                            _buildStack3(pasta,"Spaghetti","Extra Chesse","137 L.E"),
-                          Column(
-                            children: [
-                              Padding(
-                                padding: const EdgeInsets.only(top:12,bottom: 10),
-                                child: Container(
-                                  height: 60,
-                                  width: 365,
-                                  margin: EdgeInsets.only(left: 10),
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(12),
-                                    border: Border.all(color: Colors.grey.shade100),
-                                    color: Colors.grey.shade100,
-                                  ),
-                                  child: TextFormField(
-                                    controller: _promo,
-                                    textAlign: TextAlign.start,
-                                    decoration: InputDecoration(
-                                      prefixIcon: Padding(
-                                        padding: const EdgeInsets.only(left: 20.0,top: 0,right: 14),
-                                        child: Icon(Icons.card_giftcard_rounded,color: Color(0xFF868686),size: 32,),
-                                      ),
-                                      hintText: "Promo Code",
-                                      hintStyle: TextStyle(
-                                        fontSize: 22,
-                                        fontWeight: FontWeight.w500,
-                                        color: Color(0xFF868686),
-                                      ),
-                                      enabledBorder: UnderlineInputBorder(
-                                        borderSide: BorderSide(color: Color.fromRGBO(243, 245, 247, 1)),
-                                      ),
-                                      focusedBorder: UnderlineInputBorder(
-                                        borderSide: BorderSide(color: Color.fromRGBO(243, 245, 247, 1)),
-                                      ),
-                                      border: UnderlineInputBorder(
-                                        borderSide: BorderSide(color: Color.fromRGBO(243, 245, 247, 1) ),
-                                      ),
-                                      suffixIcon: Padding(
-                                        padding: const EdgeInsets.all(14.0),
-                                        child: InkWell(
-                                          onTap: (){
-                                            if(_promo.text!="0")
-                                            {
-                                              setState(() {
-                                                result-=int.parse(_promo.text);
-                                                total=result+shipping;
-                                              });
-                                            }
-                                          },
-                                          child: Text("Apply",style: TextStyle(
-                                              color: Color(0xFFE54A00),
-                                              fontSize: 22,
-                                              fontWeight: FontWeight.w700
-                                          ),
+                            if(flag==false)
+                              _buildStack(big, "Beef Bruger",
+                                  "Extra Chesse", "137 L.E"),
+                            if(flag2==false)
+                              SizedBox(height: 40,),
+                            if(flag2==false)
+                              _buildStack2(crepe,"Chesse crepe","Extra Chesse","137 L.E"),
+                            if(flag2==false)
+                              SizedBox(height: 40,),
+                            if(flag3==false)
+                              _buildStack3(pasta,"Spaghetti","Extra Chesse","137 L.E"),
+                            Column(
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsets.only(top:12,bottom: 10),
+                                  child: Container(
+                                    height: 60,
+                                    width: 365,
+                                    margin: EdgeInsets.only(left: 10),
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(12),
+                                      border: Border.all(color: Colors.grey.shade100),
+                                      color: Colors.grey.shade100,
+                                    ),
+                                    child: TextFormField(
+                                      controller: _promo,
+                                      textAlign: TextAlign.start,
+                                      decoration: InputDecoration(
+                                        prefixIcon: Padding(
+                                          padding: const EdgeInsets.only(left: 20.0,top: 0,right: 14),
+                                          child: Icon(Icons.card_giftcard_rounded,color: Color(0xFF868686),size: 32,),
+                                        ),
+                                        hintText: "Promo Code",
+                                        hintStyle: TextStyle(
+                                          fontSize: 22,
+                                          fontWeight: FontWeight.w500,
+                                          color: Color(0xFF868686),
+                                        ),
+                                        enabledBorder: UnderlineInputBorder(
+                                          borderSide: BorderSide(color: Color.fromRGBO(243, 245, 247, 1)),
+                                        ),
+                                        focusedBorder: UnderlineInputBorder(
+                                          borderSide: BorderSide(color: Color.fromRGBO(243, 245, 247, 1)),
+                                        ),
+                                        border: UnderlineInputBorder(
+                                          borderSide: BorderSide(color: Color.fromRGBO(243, 245, 247, 1) ),
+                                        ),
+                                        suffixIcon: Padding(
+                                          padding: const EdgeInsets.all(14.0),
+                                          child: InkWell(
+                                            onTap: (){
+                                              if(_promo.text!="0")
+                                              {
+                                                setState(() {
+                                                  result-=int.parse(_promo.text);
+                                                  total=result+shipping;
+                                                });
+                                              }
+                                            },
+                                            child: Text("Apply",style: TextStyle(
+                                                color: Color(0xFFE54A00),
+                                                fontSize: 22,
+                                                fontWeight: FontWeight.w700
+                                            ),
+                                            ),
                                           ),
                                         ),
                                       ),
                                     ),
                                   ),
                                 ),
-                              ),
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Padding(
-                                    padding: const EdgeInsets.only(left: 8.0,right: 8.0,top:12,bottom: 10),
-                                    child: Container(
-                                      width: 360,
-                                      child: Row(
-                                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsets.only(left: 8.0,right: 8.0,top:12,bottom: 10),
+                                      child: Container(
+                                        width: 360,
+                                        child: Row(
+                                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
 
-                                        children: [
-                                          Text("Sub Total :",
-                                            style: TextStyle(
-                                              color: Colors.black.withOpacity(0.6),
-                                              fontSize: 22,
-                                            ),
-                                          ),
-//                                          SizedBox(width: 160,),
-                                          Text(result.toString()+" L.E",
-                                            style: TextStyle(
-                                              color: Colors.black.withOpacity(0.6),
-                                              fontSize: 23,
-                                            ),
-                                          ),
-
-                                        ],
-
-                                      ),
-                                    ),
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.only(top: 12,bottom: 10,left: 5),
-                                    child: Container(
-                                      width: 360,
-                                      child: Row(
-                                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-
-                                        children: [
-                                          Text("Shipping :",
-                                            style: TextStyle(
-                                              color: Colors.black.withOpacity(0.6),
-                                              fontSize: 22,
-                                            ),
-                                          ),
-                                          //                                        SizedBox(width:172,),
-                                          Text(shipping.toString()+" L.E",
-                                            style: TextStyle(
-                                              color: Colors.black.withOpacity(0.6),
-                                              fontSize: 24,
-                                            ),
-                                          ),
-
-                                        ],
-                                      ),
-                                    ),
-                                  ),
-
-                                  Padding(
-                                    padding: const EdgeInsets.all(8.0),
-                                    child: Container(
-                                      width: 360,
-                                      child: Row(
-                                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                        children: [
-                                          Text("Total :",
-                                            style: TextStyle(
-                                              color: Colors.black.withOpacity(0.6),
-                                              fontSize: 22,
-                                              fontWeight: FontWeight.w700,
-                                            ),
-                                          ),
-                                          //SizedBox(width: 205,),
-                                          Text(total.toString()+" L.E",
-                                            style: TextStyle(
-                                              color: Colors.black.withOpacity(0.6),
-                                              fontSize: 24,
-                                            ),
-                                          ),
-
-                                        ],
-                                      ),
-                                    ),
-                                  ),
-
-                                  Padding(
-                                    padding: const EdgeInsets.only(top: 20.0),
-                                    child: Column(
-                                      children: [
-                                        InkWell(
-                                          onTap: (){
-                                            Navigator.of(context).push(MaterialPageRoute(
-                                                builder: (context)=>PaymentScreen()));
-                                          },
-                                          child: Container(
-                                              height:62,
-                                              width: 380,
-                                              decoration: BoxDecoration(
-                                                  color: Color(0xFFE54A00),
-                                                  borderRadius: BorderRadius.circular(15)
+                                          children: [
+                                            Text("Sub Total :",
+                                              style: TextStyle(
+                                                color: Colors.black.withOpacity(0.6),
+                                                fontSize: 22,
                                               ),
-                                              child:Center(
-                                                child: Text("Checkout",
-                                                  style: TextStyle(
-                                                      color: Colors.white,
-                                                      fontSize: 24,
-                                                      fontWeight: FontWeight.w500
-                                                  ),),
-                                              )
+                                            ),
+//                                          SizedBox(width: 160,),
+                                            Text(result.toString()+" L.E",
+                                              style: TextStyle(
+                                                color: Colors.black.withOpacity(0.6),
+                                                fontSize: 23,
+                                              ),
+                                            ),
 
-                                          ),
-                                        )
+                                          ],
 
-                                      ],
+                                        ),
+                                      ),
                                     ),
-                                  ),
+                                    Padding(
+                                      padding: const EdgeInsets.only(top: 12,bottom: 10,left: 5),
+                                      child: Container(
+                                        width: 360,
+                                        child: Row(
+                                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
 
-                                ],
-                              )
+                                          children: [
+                                            Text("Shipping :",
+                                              style: TextStyle(
+                                                color: Colors.black.withOpacity(0.6),
+                                                fontSize: 22,
+                                              ),
+                                            ),
+                                            //                                        SizedBox(width:172,),
+                                            Text(shipping.toString()+" L.E",
+                                              style: TextStyle(
+                                                color: Colors.black.withOpacity(0.6),
+                                                fontSize: 24,
+                                              ),
+                                            ),
+
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+
+                                    Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: Container(
+                                        width: 360,
+                                        child: Row(
+                                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            Text("Total :",
+                                              style: TextStyle(
+                                                color: Colors.black.withOpacity(0.6),
+                                                fontSize: 22,
+                                                fontWeight: FontWeight.w700,
+                                              ),
+                                            ),
+                                            //SizedBox(width: 205,),
+                                            Text(total.toString()+" L.E",
+                                              style: TextStyle(
+                                                color: Colors.black.withOpacity(0.6),
+                                                fontSize: 24,
+                                              ),
+                                            ),
+
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+
+                                    Padding(
+                                      padding: const EdgeInsets.only(top: 20.0),
+                                      child: Column(
+                                        children: [
+                                          InkWell(
+                                            onTap: (){
+                                              Navigator.of(context).push(MaterialPageRoute(
+                                                  builder: (context)=>PaymentScreen()));
+                                            },
+                                            child: Container(
+                                                height:62,
+                                                width: 380,
+                                                decoration: BoxDecoration(
+                                                    color: Color(0xFFE54A00),
+                                                    borderRadius: BorderRadius.circular(15)
+                                                ),
+                                                child:Center(
+                                                  child: Text("Checkout",
+                                                    style: TextStyle(
+                                                        color: Colors.white,
+                                                        fontSize: 24,
+                                                        fontWeight: FontWeight.w500
+                                                    ),),
+                                                )
+
+                                            ),
+                                          )
+
+                                        ],
+                                      ),
+                                    ),
+
+                                  ],
+                                )
 
 
 
-                            ],
-                          )
-                        ]
-                    ),
+                              ],
+                            )
+                          ]
+                      ),
 
-                  ],
-                ),
+                    ],
+                  ),
 
-              ],
+                ],
+              ),
             ),
           ),
         )

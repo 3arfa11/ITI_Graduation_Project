@@ -61,6 +61,7 @@ class _PopularNowScreenState extends State<PopularNowScreen> {
     return Scaffold(
       backgroundColor: Colors.grey.shade200,
 appBar: AppBar(
+
   systemOverlayStyle: SystemUiOverlayStyle(
     statusBarColor: Color(0xFFE54A00),
   ),
@@ -90,18 +91,21 @@ appBar: AppBar(
             //   )
             //   );
             // },
-            child: Container(
-              width: 380,
-              child: ListView.separated(
-                   separatorBuilder: (context,index)=>SizedBox(height: 15,),
-                  scrollDirection: Axis.vertical,
-                  itemCount: itemNameList.length,
-                  itemBuilder:(context,index)=>itemHomeBuild(itemName: itemNameList,
-                      itemDetails: itemDetailsList,
-                      itemPrice: itemPriceList,
-                      itemImage: itemImageList,
-                      index: index
-                  ) ),
+            child: Directionality(
+              textDirection: TextDirection.ltr,
+              child: Container(
+                width: 380,
+                child: ListView.separated(
+                     separatorBuilder: (context,index)=>SizedBox(height: 15,),
+                    scrollDirection: Axis.vertical,
+                    itemCount: itemNameList.length,
+                    itemBuilder:(context,index)=>itemHomeBuild(itemName: itemNameList,
+                        itemDetails: itemDetailsList,
+                        itemPrice: itemPriceList,
+                        itemImage: itemImageList,
+                        index: index
+                    ) ),
+              ),
             ),
           ),
         ),

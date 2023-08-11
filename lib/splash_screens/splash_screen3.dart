@@ -64,7 +64,7 @@ class _SplashScreen3State extends State<SplashScreen3> {
               onTap: (){
                 Navigator.of(context).pushReplacement(
                   MaterialPageRoute(
-                    builder: (context) => const SignUpScreen(),
+                    builder: (context) => const LoginScreen(),
                   ),
                 );
               },
