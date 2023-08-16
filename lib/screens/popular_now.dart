@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:itifinalproject/home_screen.dart';
 
 import 'item_details.dart';
 

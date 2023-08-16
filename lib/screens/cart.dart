@@ -4,8 +4,8 @@ import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:itifinalproject/payment_page1.dart';
-import 'const.dart';
+import 'package:itifinalproject/screens/payment_page1.dart';
+import '../const.dart';
 import 'item_details.dart';
 
 class CartPage extends StatefulWidget {

@@ -2,8 +2,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:itifinalproject/home_screen.dart';
-import 'const.dart';
+
+import '../const.dart';
 import 'navigationBar.dart';
 class PaymentPage extends StatefulWidget {
   const PaymentPage({super.key});

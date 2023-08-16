@@ -4,9 +4,8 @@ import 'package:flutter/services.dart';
 import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:itifinalproject/dio/dio_helper.dart';
-import 'package:itifinalproject/home_screen.dart';
 import 'package:itifinalproject/login/sign_up_screen.dart';
-import 'package:itifinalproject/navigationBar.dart';
+import 'package:itifinalproject/screens/navigationBar.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 

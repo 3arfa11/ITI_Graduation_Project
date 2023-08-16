@@ -1,10 +1,9 @@
 import 'package:get/get.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-import '../home_screen.dart';
 import '../login/login_screen.dart';
 import '../model/LoginModel.dart';
-import '../navigationBar.dart';
+import '../screens/navigationBar.dart';
 
 Map<String,dynamic> headers ={
   "Accept":"application/json",

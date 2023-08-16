@@ -1,18 +1,18 @@
-import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:ionicons/ionicons.dart';
-import 'package:itifinalproject/cart.dart';
-import 'package:itifinalproject/category.dart';
 import 'package:itifinalproject/dio/dio_helper.dart';
-import 'package:itifinalproject/item_details.dart';
 import 'package:itifinalproject/login/shopping_info_screen.dart';
-import 'package:itifinalproject/payment_page1.dart';
-import 'package:itifinalproject/payment_page2.dart';
-import 'package:itifinalproject/popular_now.dart';
-import 'package:itifinalproject/profile_page.dart';
+import 'package:itifinalproject/screens/payment_page1.dart';
+import 'package:itifinalproject/screens/popular_now.dart';
+import 'package:itifinalproject/screens/profile_page.dart';
+
 import 'package:url_launcher/url_launcher.dart';
+
+import 'cart.dart';
+import 'category.dart';
+import 'item_details.dart';
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 

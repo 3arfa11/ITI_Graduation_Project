@@ -3,9 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:hive/hive.dart';
-import 'package:itifinalproject/profile_page.dart';
-import 'const.dart';
-import 'home_screen.dart';
+import '../const.dart';
 
 class CategoryPage extends StatefulWidget {
   const CategoryPage({super.key});

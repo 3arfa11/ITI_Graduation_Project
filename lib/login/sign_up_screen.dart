@@ -4,9 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:itifinalproject/dio/dio_helper.dart';
-import 'package:itifinalproject/home_screen.dart';
 import 'package:itifinalproject/login/login_screen.dart';
-import 'package:itifinalproject/profile_page.dart';
 
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 

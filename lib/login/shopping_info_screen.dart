@@ -3,7 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:itifinalproject/hive/hive_helper.dart';
 import 'package:itifinalproject/cubit/shopping_info_cubit.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:itifinalproject/payment_page1.dart';
+import 'package:itifinalproject/screens/payment_page1.dart';
 class ShoppingInfoScreen extends StatefulWidget {
   const ShoppingInfoScreen({super.key});
 

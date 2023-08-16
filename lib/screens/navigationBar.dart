@@ -1,7 +1,7 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:itifinalproject/profile_page.dart';
+import 'package:itifinalproject/screens/profile_page.dart';
 
 import 'category.dart';
 import 'home_screen.dart';
